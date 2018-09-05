@@ -3,3 +3,4 @@
 *.db
 cache/
 db.sqlite3
+media/

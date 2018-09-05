@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.contrib.sitemaps.views import sitemap as sitemap_view
@@ -25,4 +27,4 @@ urlpatterns = [
     url(r'^user/logout/$', LogoutView.as_view(), name='logout'),
     url(r'^user/set-area/$', views.SetAreaView.as_view(), name='set-area'),
     url(r'^admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

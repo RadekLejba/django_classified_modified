@@ -11,8 +11,6 @@ SECRET_KEY = 'vp)gy*xy*ezf*9efo#1t3zao%ecyp4jz94sk)gb_g@hk%!r^y2'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-THUMBNAIL_CACHE_TIMEOUT = 3600 * 24 * 365
-THUMBNAIL_DEBUG = True
 
 # Application definition
 
@@ -106,6 +104,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+THUMBNAIL_CACHE_TIMEOUT = 3600 * 24 * 365
+THUMBNAIL_DEBUG = True
+THUMBNAIL_PREFIX = 'cache/'
 
 
 """
