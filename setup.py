@@ -33,6 +33,7 @@ setuptools.setup(
         "Django>=1.11,<2.2",
         "Pillow>=4.0",
         "sorl-thumbnail>=12",
+        "psycopg2-binary",
         "unidecode",
         # Babel is used for currency formatting
         'Babel>=1.0,<3.0',
