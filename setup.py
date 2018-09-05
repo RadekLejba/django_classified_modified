@@ -3,7 +3,7 @@ import setuptools
 
 from django_classified import get_version  # noqa isort:skip
 
-with open("README.md", "r") as fh:
+with open("readme.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
