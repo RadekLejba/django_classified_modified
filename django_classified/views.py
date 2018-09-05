@@ -178,7 +178,7 @@ class ItemDetailView(DetailView):
 
         if form.is_valid():
             from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
+            message = form.cleaned_data['message'] + '\nItem url: ' + request.get_raw_uri()
             subject = form.cleaned_data['subject']
             to_email = object.user.email
 
