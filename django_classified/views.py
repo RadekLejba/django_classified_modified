@@ -2,7 +2,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage, BadHeaderError
 from django.forms import inlineformset_factory
 from django.http import HttpResponse
 from django.shortcuts import redirect, get_object_or_404
@@ -183,7 +183,14 @@ class ItemDetailView(DetailView):
             to_email = object.user.email
 
             try:
-                send_mail(subject, message, from_email, [to_email])
+                mail = EmailMessage(
+                    subject=subject,
+                    body=message,
+                    from_email=dcf_settings.EMAIL_HOST_USER,
+                    to=[to_email],
+                    reply_to=[from_email],
+                )
+                mail.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
